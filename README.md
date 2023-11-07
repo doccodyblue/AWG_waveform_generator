@@ -27,6 +27,9 @@ python generate_waveform.py 32000 2.5,3.75
 
 This command will create a waveform file with 32000 samples with frequency factors of 2.5 and 3.75 modulated on top of the base waveform.
 
+Setting the factor to 0 like this: python generate_waveform.py 32000 0
+only creates a base sine over the "max_samples" samples
+
 ## Output
 The script generates a waveform file with a name following the pattern `waveform_<max_samples>_<freq_multiplier1>_<freq_multiplier2>... .awg`, where each sample is a 16-bit integer value on a new line.
 
