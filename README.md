@@ -16,22 +16,28 @@ This AWG Waveform Generator is a Python tool designed to create waveform files s
 ## Installation
 No installation is needed. Simply clone the repository or download the `generate_waveform.py` script.
 
+
 ## Usage
-Run the script from the command line, passing the maximum number of samples and a comma-separated list of frequency multipliers as arguments.
+Run the script from the command line. You can specify the number of samples, frequency multipliers, and whether to normalize the waveform or generate a DC waveform.
 
 ### Command Line Syntax:
-python generate_waveform.py <max_samples> <freq_multiplier1,freq_multiplier2,...>
+*python generate_waveform.py <max_samples> <freq_multiplier1,freq_multiplier2,...> [--normalize] [--dc]*
 
-### Example:
-python generate_waveform.py 32000 2.5,3.75
+### Examples:
+- Generate a modulated waveform:
+  *python generate_waveform.py 32000 2.5,3.75*
+  This command creates a waveform file with 32000 samples with frequency factors of 2.5 and 3.75.
 
-This command will create a waveform file with 32000 samples with frequency factors of 2.5 and 3.75 modulated on top of the base waveform.
+- Generate a DC waveform:
+  *python generate_waveform.py 32000 --dc*
+  This command creates a DC waveform with 32000 samples.
 
-Setting the factor to 0 like this: python generate_waveform.py 32000 0
-only creates a base sine over the "max_samples" samples
+- Generate a normalized waveform:
+  *python generate_waveform.py 32000 2.5,3.75 --normalize*
+  This generates a normalized waveform with the specified frequency factors.
 
 ## Output
-The script generates a waveform file with a name following the pattern `waveform_<max_samples>_<freq_multiplier1>_<freq_multiplier2>... .awg`, where each sample is a 16-bit integer value on a new line.
+The script generates a waveform file named following the pattern `waveform_<max_samples>_<freq_multiplier1>_<freq_multiplier2>... .awg` for modulated waveforms or `dc_waveform_<max_samples>.awg` for DC waveforms. Each sample is a 16-bit integer value, either on a new line or as binary data.
 
 ## Contributing
 Contributions to improve the AWG Waveform Generator are welcome. Please feel free to fork the repository, make your changes, and submit a pull request.
